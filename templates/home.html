@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link href="/static/css/main.css" rel="stylesheet">
+  <title>MAQE - Home</title>
+</head>
+
+<body>
+  <div id="app">
+    <el-container>
+      <el-main>
+        <h1>MAQE Forums</h1>
+        <h2>Subtitle</h2>
+        <h3>Posts</h3>
+        <el-row :gutter="12" class="pagination">
+          <el-col :span="24">
+            <el-pagination @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size.sync="pageSize"
+              :pager-count="11" layout="prev, pager, next" :total="20" v-bind:disabled="loading">
+            </el-pagination>
+          </el-col>
+        </el-row>
+        <el-row :gutter="12" v-loading="loading">
+          <el-col :span="24" class="post" v-for="(forum, index) in forums" :key="forum.post.id">
+            <el-card shadow="hover" :body-style="{ padding: '15px' }" v-bind:class="{ 'card-even': index%2==1 }">
+              <el-row type="flex" :gutter="12" class="post-body">
+                <el-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4" class="post-image">
+                  <img v-bind:src="forum.post.image_url">
+                </el-col>
+                <el-col :xs="24" :sm="24" :md="16" :lg="16" :xl="16" class="post-content">
+                  <h3>${forum.post.title}</h3>
+                  <h4>${forum.post.body}</h4>
+                  <h4 class="time"><i class="el-icon-time"></i>&nbsp ${fromDate(forum.post.created_at)}</h4>
+                </el-col>
+                <el-col :xs="24" :sm="24" :md="4" :lg="4" :xl="4" class="post-author">
+                  <img v-bind:src="forum.author.avatar_url">
+                  <p>
+                    <h4 style="color:tomato">${forum.author.name}</h4>
+                  </p>
+                  <p>
+                    <h4>${forum.author.role}</h4>
+                  </p>
+                  <p>
+                    <h4><i class="el-icon-location"></i>&nbsp ${forum.author.place}</h4>
+                  </p>
+                </el-col>
+              </el-row>
+            </el-card>
+          </el-col>
+        </el-row>
+        <el-row :gutter="12" class="pagination">
+          <el-col :span="24">
+            <el-pagination @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size.sync="pageSize"
+              :pager-count="11" layout="prev, pager, next" :total="20" v-bind:disabled="loading">
+            </el-pagination>
+          </el-col>
+        </el-row>
+      </el-main>
+    </el-container>
+  </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="/static/js/main.js"></script>
+
+</html>

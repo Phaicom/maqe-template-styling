@@ -1,0 +1,128 @@
+body {
+  font: 1rem/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #2c2c2c;
+  font-weight: 400;
+  margin: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font: 1rem/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #2c2c2c;
+  margin: 0 0 1.25rem;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.post {
+  margin-top: 13px;
+  line-height: 12px;
+}
+
+.post > .el-card {
+  box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.el-col > h4 {
+  font-size: 0.8rem;
+  color: #838383;
+}
+
+.time {
+  font-size: 13px;
+  color: #999;
+  font-style: italic;
+}
+
+.post-image {
+  text-align: center;
+}
+
+.post-image > img {
+  width: 100%;
+  max-width: 170px;
+  height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .post-image > img {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .post-content {
+    text-align: center;
+  }
+
+  .post-content > h3 {
+    font-size: 24px;
+  }
+
+  .post-content > h4 {
+    font-size: 16px;
+  }
+}
+
+.post-author {
+  text-align: center;
+  border-left: 1px solid #ebeef5;
+}
+
+@media only screen and (max-width: 768px) {
+  .post-author {
+    border-left: none;
+  }
+}
+
+.post-author > img {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.post-author > h4 {
+  color: #2c2c2c;
+  margin-bottom: 0;
+}
+
+.post-author > p {
+  margin: 5px 0 5px 0;
+}
+
+.post-body {
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 768px) {
+  .post-body > .el-col {
+    padding-bottom: 10px;
+  }
+}
+
+.card-even {
+  background-color: #f7f7f7;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 10px;
+}
